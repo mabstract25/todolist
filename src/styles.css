@@ -6,3 +6,23 @@
 h2 {
     font-size: 2em;
 }
+
+/* Container Styles */
+.pagecontainer {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+}
+
+.organiser {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr)
+}
+
+#todobox {
+    background-color: lightblue;
+    padding: 1em;
+}
