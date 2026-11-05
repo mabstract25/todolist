@@ -1,21 +1,27 @@
 import "./styles.css"
 
 class toDoList {
-    constructor (title, description, duedate, priority){
-        this.title = title;
-        this.description = description;
-        this.duedate = duedate;
-        this.priority = priority;
+    constructor (title, description, deadline, priority){
+        this.Title = title;
+        this.Description = description;
+        this.Deadline = deadline;
+        this.Priority = priority;
     }
 }
 
-function buildCard(location, todoitem) {
+function buildCard(todoitem) {
     
-    // Declare location as document.getelementbyID
-
-    // For each card key > generate something in the DOM location specified above.
+    const location = document.getElementById('todobox');
+    
     for (const [key, value] of Object.entries(todoitem)) {
-        console.log(value);
+        let keytext = document.createElement('p');
+        keytext.classList.add('toDoKey')
+        keytext.textContent = key;
+        let valuetext = document.createElement('p');
+        valuetext.classList.add('toDoValue')
+        valuetext.textContent = value;
+        location.appendChild(keytext);
+        location.appendChild(valuetext);
     }
 }
 
@@ -23,4 +29,4 @@ const test = new toDoList("test","thisisatest","01012026","Priority 1")
 
 
 
-console.log(Object.entries(test))
+console.log(buildCard(test))
