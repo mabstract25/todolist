@@ -28,5 +28,31 @@ function buildCard(todoitem) {
 const test = new toDoList("test","thisisatest","01012026","Priority 1")
 
 
+buildCard(test);
 
-console.log(buildCard(test))
+// Function to initialise 'Modal', used to create tasks.
+function initModal() {
+    const location = document.getElementById('navbar');
+    const modalContainer = createElement('input', ['test','test2'], {name:"test", ID: "test2"})
+    location.appendChild(modalContainer)
+}
+
+
+// Function to dynamically create elements in one line.
+function createElement(type, elclass = [], elattribute = {}) {
+    const element = document.createElement(type);
+
+    elclass.forEach(_class => {
+        element.classList.add(_class);
+    });
+
+    for (const [key, value] of Object.entries(elattribute)) {
+        if (key === 'textContent') {
+            element.textContent = value;
+        }
+        else {
+            element.setAttribute(key, value);
+        }
+    }
+    return element;
+}
