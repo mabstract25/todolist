@@ -7,6 +7,10 @@ h2 {
     font-size: 2em;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* Container Styles */
 .pagecontainer {
     width: 100%;
@@ -25,4 +29,26 @@ h2 {
 #todobox {
     background-color: lightblue;
     padding: 1em;
+}
+
+/* Modal Styles */
+
+.modalBG {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+    background-color: white;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
 }

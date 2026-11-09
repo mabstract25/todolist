@@ -11,6 +11,16 @@ class toDoList {
     }
 }
 
+// Show/hide modal
+
+document.getElementById('addTask').addEventListener('click', () =>{
+    let newTaskModal = document.getElementById('modalBG');
+    newTaskModal.classList.remove('hidden');
+});
+    
+    
+
+
 function buildCard(todoitem) {
     
     const location = document.getElementById('todobox');
@@ -28,12 +38,12 @@ function buildCard(todoitem) {
 }
 
 const test = new toDoList("test","thisisatest","01012026","Priority 1")
-
+initModal();
 
 buildCard(test);
 
 
-initModal('todobox');
+
 
 // Function to dynamically create elements in one line.
 

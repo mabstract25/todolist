@@ -1,9 +1,9 @@
 import {createElement} from './helpers.js'
 
 // Function to initialise 'Modal', used to create tasks.
-function initModal(location) {
-    const drawLocation = document.getElementById(location);
-    const modalBG = createElement('div', ['modalBG'],{});
+function initModal() {
+    const drawLocation = document.getElementById('pagecontainer');
+    const modalBG = createElement('div', ['modalBG', 'hidden'],{id:"modalBG"});
     const modalContainer = createElement('div', ['modalContainer'], {});
     const titleLabel = createElement('label', ['label'], {for:"titleInput", textContent:"Task Title: "});
     const titleInput = createElement('input', ['input'], {name:"titleInput"});
