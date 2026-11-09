@@ -33,7 +33,7 @@ const test = new toDoList("test","thisisatest","01012026","Priority 1")
 buildCard(test);
 
 
-initModal();
+initModal('todobox');
 
 // Function to dynamically create elements in one line.
 
