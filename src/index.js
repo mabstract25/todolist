@@ -1,4 +1,6 @@
 import "./styles.css"
+import {createElement} from './helpers.js'
+import {initModal} from './modals.js'
 
 class toDoList {
     constructor (title, description, deadline, priority){
@@ -30,29 +32,8 @@ const test = new toDoList("test","thisisatest","01012026","Priority 1")
 
 buildCard(test);
 
-// Function to initialise 'Modal', used to create tasks.
-function initModal() {
-    const location = document.getElementById('navbar');
-    const modalContainer = createElement('input', ['test','test2'], {name:"test", ID: "test2"})
-    location.appendChild(modalContainer)
-}
 
+initModal();
 
 // Function to dynamically create elements in one line.
-function createElement(type, elclass = [], elattribute = {}) {
-    const element = document.createElement(type);
 
-    elclass.forEach(_class => {
-        element.classList.add(_class);
-    });
-
-    for (const [key, value] of Object.entries(elattribute)) {
-        if (key === 'textContent') {
-            element.textContent = value;
-        }
-        else {
-            element.setAttribute(key, value);
-        }
-    }
-    return element;
-}
