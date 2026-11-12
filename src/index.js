@@ -11,7 +11,7 @@ class toDoList {
     }
 }
 
-// Show/hide modal
+// Show modal
 
 document.getElementById('addTask').addEventListener('click', () =>{
     let newTaskModal = document.getElementById('modalBG');

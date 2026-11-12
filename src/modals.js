@@ -5,6 +5,12 @@ function initModal() {
     const drawLocation = document.getElementById('pagecontainer');
     const modalBG = createElement('div', ['modalBG', 'hidden'],{id:"modalBG"});
     const modalContainer = createElement('div', ['modalContainer'], {});
+    const modalClose = createElement('button', ['closeBtn'],{textContent:"X"});
+    modalClose.addEventListener("click", (e) =>{
+        modalBG.classList.add('hidden');
+    });
+    const inputContainer = createElement('div', ['inputContainer'],{});
+    modalContainer.append(modalClose, inputContainer);
     const titleLabel = createElement('label', ['label'], {for:"titleInput", textContent:"Task Title: "});
     const titleInput = createElement('input', ['input'], {name:"titleInput"});
     const descLabel = createElement('label', ['label'], {for:"descInput", textContent:"Description: "});
@@ -18,7 +24,7 @@ function initModal() {
     const Low = createElement('option', ['option'], {value:"low", textContent:"Low"});
     prioDropdown.append(High,Medium,Low);
     modalBG.append(modalContainer);
-    modalContainer.append(titleLabel, titleInput, descLabel, descInput, deadLabel, deadInput, prioLabel, prioDropdown);
+    inputContainer.append(titleLabel, titleInput, descLabel, descInput, deadLabel, deadInput, prioLabel, prioDropdown);
     drawLocation.append(modalBG);
 }
 

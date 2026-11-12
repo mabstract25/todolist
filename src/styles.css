@@ -45,7 +45,9 @@ h2 {
   align-items: center;
 }
 
-.modalContainer {
+
+
+.inputContainer {
     background-color: white;
     padding: 1em;
     display: grid;
