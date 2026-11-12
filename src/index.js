@@ -18,8 +18,6 @@ document.getElementById('addTask').addEventListener('click', () =>{
     newTaskModal.classList.remove('hidden');
 });
     
-    
-
 
 function buildCard(todoitem) {
     
@@ -37,13 +35,7 @@ function buildCard(todoitem) {
     }
 }
 
-const test = new toDoList("test","thisisatest","01012026","Priority 1")
 initModal();
 
-buildCard(test);
 
-
-
-
-// Function to dynamically create elements in one line.
-
+export {buildCard, toDoList};
