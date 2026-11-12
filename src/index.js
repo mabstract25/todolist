@@ -1,6 +1,6 @@
 import "./styles.css"
 import {createElement} from './helpers.js'
-import {initModal} from './modals.js'
+import {initModal,projectModal} from './modals.js'
 
 class toDoList {
     constructor (title, description, deadline, priority){
@@ -17,6 +17,11 @@ document.getElementById('addTask').addEventListener('click', () =>{
     let newTaskModal = document.getElementById('modalBG');
     newTaskModal.classList.remove('hidden');
 });
+
+document.getElementById('newProject').addEventListener('click', () =>{
+    let newProjModal = document.getElementById('projectBG');
+    newProjModal.classList.remove('hidden');
+})
     
 
 function buildCard(todoitem) {
@@ -36,6 +41,6 @@ function buildCard(todoitem) {
 }
 
 initModal();
-
+projectModal();
 
 export {buildCard, toDoList};

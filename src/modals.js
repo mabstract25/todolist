@@ -45,4 +45,27 @@ function initModal() {
     drawLocation.append(modalBG);
 }
 
-export {initModal}
+function projectModal(){
+    const drawLocation = document.getElementById('pagecontainer');
+    const projectBG = createElement('div', ['modalBG', 'hidden'],{id:"projectBG"});
+    const projInputContainer = createElement('form', ['inputContainer'],{ID:"projForm"});
+
+    const projContainer = createElement('div', ['modalContainer'], {});
+    const projClose = createElement('button', ['closeBtn'],{textContent:"X"});
+    const projtitleLabel = createElement('label', ['label'], {for:"projtitleInput", textContent:"Project Title: "});
+    const projtitleInput = createElement('input', ['input'], {name:"titleInput", type:"text"});
+
+    projClose.addEventListener("click", () =>{
+        projectBG.classList.add('hidden');
+        projInputContainer.reset();
+    });
+
+
+    projectBG.append(projContainer);
+    projContainer.append(projClose, projInputContainer);
+    projContainer.append(projtitleLabel,projtitleInput);
+    drawLocation.append(projectBG);
+
+}
+
+export {initModal,projectModal}
