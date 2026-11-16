@@ -11,6 +11,13 @@ class toDoList {
     }
 }
 
+// class projList {
+//     constructor(title, button) {
+//         this.Project_Title = title;
+//         this.Button = ()
+//     }
+// }
+
 // Show modal
 
 document.getElementById('addTask').addEventListener('click', () =>{
@@ -24,9 +31,8 @@ document.getElementById('newProject').addEventListener('click', () =>{
 })
     
 
-function buildCard(todoitem) {
-    
-    const location = document.getElementById('todobox');
+function buildCard(todoitem,locID) {
+    const location = document.getElementById(locID);
     
     for (const [key, value] of Object.entries(todoitem)) {
         let keytext = document.createElement('p');

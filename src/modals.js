@@ -34,7 +34,7 @@ function initModal() {
         let taskDead = deadInput.value;
         let taskPrio = prioDropdown.value;
         const test2 = new toDoList(taskTitle, taskDesc, taskDead, taskPrio);
-        buildCard(test2);
+        buildCard(test2,'todobox');
         modalBG.classList.add('hidden');
         inputContainer.reset();
     });
@@ -55,15 +55,23 @@ function projectModal(){
     const projtitleLabel = createElement('label', ['label'], {for:"projtitleInput", textContent:"Project Title: "});
     const projtitleInput = createElement('input', ['input'], {name:"titleInput", type:"text"});
 
+    const projSubmitBtn = createElement('input', ['submitbtn'], {type:"submit", value:"Create Project", ID:"projSubmit"});
+
+
     projClose.addEventListener("click", () =>{
         projectBG.classList.add('hidden');
         projInputContainer.reset();
     });
 
+    projSubmitBtn.addEventListener("click", (e) =>{
+        e.preventDefault();
+
+    })
+
 
     projectBG.append(projContainer);
     projContainer.append(projClose, projInputContainer);
-    projContainer.append(projtitleLabel,projtitleInput);
+    projInputContainer.append(projtitleLabel,projtitleInput,projSubmitBtn);
     drawLocation.append(projectBG);
 
 }
