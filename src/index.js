@@ -11,16 +11,19 @@ class toDoList {
     }
 }
 
-// class projList {
-//     constructor(title, button) {
-//         this.Project_Title = title;
-//         this.Button = ()
-//     }
-// }
+class projList {
+    constructor(title) {
+        this.Project_Title = title;
+    }
+}
 
 // Show modal
 
-document.getElementById('addTask').addEventListener('click', () =>{
+document.getElementById('addTask').addEventListener('click', (e) =>{
+    console.log(e.target.nextSibling);
+    // Declare Location Variable
+    // Set the event listener to all addTask classes
+    // On click > location is updated using the task button's ID
     let newTaskModal = document.getElementById('modalBG');
     newTaskModal.classList.remove('hidden');
 });
@@ -49,4 +52,4 @@ function buildCard(todoitem,locID) {
 initModal();
 projectModal();
 
-export {buildCard, toDoList};
+export {buildCard, toDoList, projList};
