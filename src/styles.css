@@ -54,3 +54,8 @@ h2 {
     grid-template-columns: 1fr 1fr;
     gap: 1em;
 }
+
+.project {
+    background-color: lightcoral;
+}
+

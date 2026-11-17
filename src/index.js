@@ -27,7 +27,8 @@ document.getElementById('newProject').addEventListener('click', () =>{
 
 function buildCard(todoitem,locID) {
     const location = document.getElementById(locID);
-    
+    const taskContainer = createElement('div', ['taskContainer'], {});
+    location.append(taskContainer);
     for (const [key, value] of Object.entries(todoitem)) {
         let keytext = document.createElement('p');
         keytext.classList.add('toDoKey')
@@ -35,8 +36,17 @@ function buildCard(todoitem,locID) {
         let valuetext = document.createElement('p');
         valuetext.classList.add('toDoValue')
         valuetext.textContent = value;
-        location.appendChild(keytext);
-        location.appendChild(valuetext);
+        taskContainer.appendChild(keytext);
+        taskContainer.appendChild(valuetext);
+    }
+}
+
+function buildProject(projectitem,locID) {
+    const location = document.getElementById(locID);
+    const projTitleContainer = createElement('div',['projTitleContainer'], {});
+    location.append(projTitleContainer);
+    for (const [value] of Object.entries(projectitem)) {
+        let projTitle = document.createElement('h4');
     }
 }
 
