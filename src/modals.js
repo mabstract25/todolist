@@ -25,6 +25,7 @@ function initModal(Loc) {
     
     modalClose.addEventListener("click", () =>{
         modalBG.classList.add('hidden');
+        modalBG.remove();
         inputContainer.reset();
     });
     submitBtn.addEventListener("click", (e) =>{
@@ -36,6 +37,7 @@ function initModal(Loc) {
         const test2 = new toDoList(taskTitle, taskDesc, taskDead, taskPrio);
         buildCard(test2,Loc);
         modalBG.classList.add('hidden');
+        modalBG.remove();
         inputContainer.reset();
     });
 
