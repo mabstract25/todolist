@@ -21,8 +21,8 @@ function createElement(type, elclass = [], elattribute = {}) {
 function addTaskListener(btn) {
     btn.addEventListener('click', (e) =>{
     console.log(e);
-    console.log(e.target.parentNode.id);
-    initModal(e.target.parentNode.id);
+    console.log(e.target.nextSibling.id);
+    initModal(e.target.nextSibling.id);
     let newTaskModal = document.getElementById('modalBG');
     newTaskModal.classList.remove('hidden');
 })};
