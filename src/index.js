@@ -45,13 +45,24 @@ function buildProject(projectitem,locID) {
     const location = document.getElementById(locID);
     const projTitleContainer = createElement('div',['projTitleContainer'], {});
     location.append(projTitleContainer);
-    for (const [value] of Object.entries(projectitem)) {
-        let projTitleText = createElement('h4',['projTitleText'],{textContent: value});
-        projTitleContainer.appendChild(projTitleText);
-    }
+    let projTitleText = createElement('h4',['projTitleText'],{textContent: projectitem.Project_Title});
+    projTitleContainer.appendChild(projTitleText);
 }
 
-// initModal();
 projectModal();
 
 export {buildCard, buildProject, toDoList, projList};
+
+
+document.getElementById('contractallbtn').addEventListener('click', collapseAll);
+
+function collapseAll() {
+    const taskContainerList = document.getElementsByClassName('taskContainer');
+    for (const task of taskContainerList){
+        let nodes = task.childNodes;
+        nodes.forEach((node) => {
+            console.log(node);
+        })
+        
+    }
+}
