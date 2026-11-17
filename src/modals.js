@@ -1,5 +1,5 @@
 import {createElement, addTaskListener} from './helpers.js'
-import {buildCard, toDoList, projList} from './index.js'
+import {buildCard, buildProject, toDoList, projList} from './index.js'
 // Function to initialise 'Modal', used to create tasks.
 function initModal(Loc) {
     const drawLocation = document.getElementById('pagecontainer');
@@ -77,8 +77,8 @@ function projectModal(){
         document.getElementById('organiser').appendChild(newProject);
         let projTitle = projtitleInput.value;
         const projTest = new projList(projTitle);
-        buildCard(projTest,projID);
-        newProject.append(newTask,projTasks);
+        buildProject(projTest,projID);
+        newProject.firstChild.append(newTask,projTasks);
         projectBG.classList.add('hidden');
     })
 

@@ -46,11 +46,12 @@ function buildProject(projectitem,locID) {
     const projTitleContainer = createElement('div',['projTitleContainer'], {});
     location.append(projTitleContainer);
     for (const [value] of Object.entries(projectitem)) {
-        let projTitle = document.createElement('h4');
+        let projTitleText = createElement('h4',['projTitleText'],{textContent: value});
+        projTitleContainer.appendChild(projTitleText);
     }
 }
 
 // initModal();
 projectModal();
 
-export {buildCard, toDoList, projList};
+export {buildCard, buildProject, toDoList, projList};
