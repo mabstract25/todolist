@@ -1,3 +1,5 @@
+import {initModal} from './modals.js'
+
 function createElement(type, elclass = [], elattribute = {}) {
     const element = document.createElement(type);
 
@@ -16,5 +18,15 @@ function createElement(type, elclass = [], elattribute = {}) {
     return element;
 }
 
+function addTaskListener(btn) {
+    btn.addEventListener('click', (e) =>{
+    console.log(e);
+    console.log(e.target.parentNode.id);
+    initModal(e.target.parentNode.id);
+    let newTaskModal = document.getElementById('modalBG');
+    newTaskModal.classList.remove('hidden');
+})};
 
-export {createElement};
+
+
+export {createElement,addTaskListener};

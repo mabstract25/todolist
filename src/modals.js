@@ -1,7 +1,7 @@
-import {createElement} from './helpers.js'
+import {createElement, addTaskListener} from './helpers.js'
 import {buildCard, toDoList, projList} from './index.js'
 // Function to initialise 'Modal', used to create tasks.
-function initModal() {
+function initModal(Loc) {
     const drawLocation = document.getElementById('pagecontainer');
     const modalBG = createElement('div', ['modalBG', 'hidden'],{id:"modalBG"});
     const modalContainer = createElement('div', ['modalContainer'], {});
@@ -34,7 +34,7 @@ function initModal() {
         let taskDead = deadInput.value;
         let taskPrio = prioDropdown.value;
         const test2 = new toDoList(taskTitle, taskDesc, taskDead, taskPrio);
-        buildCard(test2,'todobox');
+        buildCard(test2,Loc);
         modalBG.classList.add('hidden');
         inputContainer.reset();
     });
@@ -67,13 +67,16 @@ function projectModal(){
         e.preventDefault();
         let projID = crypto.randomUUID();
         let taskID = crypto.randomUUID();
+        let projTasksID = crypto.randomUUID();
         const newProject = createElement('div', ['project'], {id: projID});
         const newTask = createElement('button', ['addTask'],{textContent:"New Task", id:taskID});
+        const projTasks = createElement('div',['tasks'],{id:projTasksID});
+        addTaskListener(newTask);
         document.getElementById('organiser').appendChild(newProject);
         let projTitle = projtitleInput.value;
         const projTest = new projList(projTitle);
         buildCard(projTest,projID);
-        newProject.append(newTask);
+        newProject.append(newTask,projTasks);
         projectBG.classList.add('hidden');
     })
 

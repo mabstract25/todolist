@@ -17,16 +17,7 @@ class projList {
     }
 }
 
-// Show modal
 
-document.getElementById('addTask').addEventListener('click', (e) =>{
-    console.log(e.target.nextSibling);
-    // Declare Location Variable
-    // Set the event listener to all addTask classes
-    // On click > location is updated using the task button's ID
-    let newTaskModal = document.getElementById('modalBG');
-    newTaskModal.classList.remove('hidden');
-});
 
 document.getElementById('newProject').addEventListener('click', () =>{
     let newProjModal = document.getElementById('projectBG');
@@ -49,7 +40,7 @@ function buildCard(todoitem,locID) {
     }
 }
 
-initModal();
+// initModal();
 projectModal();
 
 export {buildCard, toDoList, projList};
