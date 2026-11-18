@@ -61,7 +61,12 @@ function collapseAll() {
     for (const task of taskContainerList){
         let nodes = task.childNodes;
         nodes.forEach((node) => {
-            console.log(node);
+            if(node === nodes[1] || node === nodes[0]) {
+                return;
+            } else {
+                node.classList.add('hidden')
+            }
+            
         })
         
     }
