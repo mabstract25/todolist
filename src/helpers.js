@@ -27,6 +27,21 @@ function addTaskListener(btn) {
     newTaskModal.classList.remove('hidden');
 })};
 
+function collapseAll() {
+    const taskContainerList = document.getElementsByClassName('taskContainer');
+    for (const task of taskContainerList){
+        let nodes = task.childNodes;
+        nodes.forEach((node) => {
+            if(node === nodes[1] || node === nodes[0]) {
+                return;
+            } else {
+                node.classList.add('hidden')
+            }
+            
+        })
+        
+    }
+}
 
 
-export {createElement,addTaskListener};
+export {createElement,addTaskListener,collapseAll};

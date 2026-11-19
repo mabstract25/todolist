@@ -1,5 +1,5 @@
 import "./styles.css"
-import {createElement} from './helpers.js'
+import {createElement,collapseAll} from './helpers.js'
 import {initModal,projectModal} from './modals.js'
 
 class toDoList {
@@ -56,18 +56,4 @@ export {buildCard, buildProject, toDoList, projList};
 
 document.getElementById('contractallbtn').addEventListener('click', collapseAll);
 
-function collapseAll() {
-    const taskContainerList = document.getElementsByClassName('taskContainer');
-    for (const task of taskContainerList){
-        let nodes = task.childNodes;
-        nodes.forEach((node) => {
-            if(node === nodes[1] || node === nodes[0]) {
-                return;
-            } else {
-                node.classList.add('hidden')
-            }
-            
-        })
-        
-    }
-}
+
