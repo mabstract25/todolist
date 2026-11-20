@@ -59,3 +59,27 @@ h2 {
     background-color: lightcoral;
 }
 
+.tasks {
+    display: grid;
+    gap: 0.5em;
+    padding: 0.5em;   
+}
+
+.taskContainer {
+    display: grid;
+    padding: 0.5em;
+    background-color: lightgray;
+    border-radius: 0.5em;
+    border: 1px solid darkgray;
+    gap: 0.5em;
+    grid-template-columns: 1fr 1fr;
+}
+
+.toDoKey, .toDoValue{
+    padding: 0.2em;
+    border-radius: 0.2em;
+}
+
+.toDoKey {
+    background-color: white;
+}
