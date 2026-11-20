@@ -43,5 +43,21 @@ function collapseAll() {
     }
 }
 
+function expandAll() {
+    const taskContainerList = document.getElementsByClassName('taskContainer');
+        for (const task of taskContainerList){
+        let nodes = task.childNodes;
+        nodes.forEach((node) => {
+            if(node === nodes[1] || node === nodes[0]) {
+                return;
+            } else {
+                node.classList.remove('hidden')
+            }
+            
+        })
+        
+    }
 
-export {createElement,addTaskListener,collapseAll};
+}
+
+export {createElement,addTaskListener,collapseAll,expandAll};

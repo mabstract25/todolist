@@ -1,5 +1,5 @@
 import "./styles.css"
-import {createElement,collapseAll} from './helpers.js'
+import {createElement,collapseAll,expandAll} from './helpers.js'
 import {initModal,projectModal} from './modals.js'
 
 class toDoList {
@@ -55,5 +55,5 @@ export {buildCard, buildProject, toDoList, projList};
 
 
 document.getElementById('contractallbtn').addEventListener('click', collapseAll);
-
+document.getElementById('expandallbtn').addEventListener('click', expandAll);
 
