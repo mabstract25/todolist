@@ -1,8 +1,7 @@
 import {createElement, addTaskListener,flipDate} from './helpers.js'
-import {buildCard, buildProject, toDoList, projList} from './index.js'
+import {buildCard, buildProject, toDoList, projList, updateCard} from './index.js'
 // Function to initialise 'Modal', used to create tasks.
 function initModal(Edit,Loc) {
-    
     
     const drawLocation = document.getElementById('pagecontainer');
     const modalBG = createElement('div', ['modalBG', 'hidden'],{id:"modalBG"});
@@ -19,20 +18,22 @@ function initModal(Edit,Loc) {
     const deadInput = createElement('input', ['input'], {name:"deadInput", type:"date"});
     const prioLabel = createElement('label', ['label'], {for:"select", textContent:"Priority: "});
     const prioDropdown = createElement('select', ['select'], {name:"priority"});
-    const defaultSel = createElement('option', ['option'], {value:"", textContent: "--Assign Priority--", selected:""});
-    const High = createElement('option', ['option'], {value:"high", textContent:"High"});
-    const Medium = createElement('option', ['option'], {value:"medium", textContent:"Medium"});
-    const Low = createElement('option', ['option'], {value:"low", textContent:"Low"});
+    const defaultSel = createElement('option', ['option'], {value:"", textContent: "--Assign Priority--"});
+    const High = createElement('option', ['option'], {value:"High", textContent:"High"});
+    const Medium = createElement('option', ['option'], {value:"Medium", textContent:"Medium"});
+    const Low = createElement('option', ['option'], {value:"Low", textContent:"Low"});
     const submitBtn = createElement('input', ['submitbtn'], {type:"submit", value:"Create Task", ID:"taskSubmit"});
 
     if(Edit !== ""){
        alert("NOOOO");
-       deadInput.value = "2026-02-02";
+       titleInput.value = Edit[0];
+       descInput.value = Edit[1];
+       deadInput.value = Edit[2];
+       prioDropdown.value = Edit[3];
+       
+    //    High.selected = true;
     };
 
-    
-    
-    
     modalClose.addEventListener("click", () =>{
         modalBG.classList.add('hidden');
         modalBG.remove();
@@ -45,7 +46,9 @@ function initModal(Edit,Loc) {
         let taskDead = flipDate(deadInput.value);
         let taskPrio = prioDropdown.value;
         const test2 = new toDoList(taskTitle, taskDesc, taskDead, taskPrio);
+        // if edit blank here 
         buildCard(test2,Loc);
+        // if edit fill here - swap Loc for this card
         modalBG.classList.add('hidden');
         modalBG.remove();
         inputContainer.reset();
@@ -56,6 +59,67 @@ function initModal(Edit,Loc) {
     inputContainer.append(titleLabel, titleInput, descLabel, descInput, deadLabel, deadInput, prioLabel, prioDropdown, submitBtn);
     drawLocation.append(modalBG);
     
+}
+
+function updateModal(Edit,Loc) {
+    
+    const drawLocation = document.getElementById('pagecontainer');
+    const modalBG = createElement('div', ['modalBG', 'hidden'],{id:"modalBG"});
+    const modalContainer = createElement('div', ['modalContainer'], {});
+    const modalClose = createElement('button', ['closeBtn'],{textContent:"X"});
+
+    const inputContainer = createElement('form', ['inputContainer'],{ID:"taskForm"});
+    modalContainer.append(modalClose, inputContainer);
+    const titleLabel = createElement('label', ['label'], {for:"titleInput", textContent:"Task Title: "});
+    const titleInput = createElement('input', ['input'], {name:"titleInput", type:"text", value:Edit[0]});
+    const descLabel = createElement('label', ['label'], {for:"descInput", textContent:"Description: "});
+    const descInput = createElement('input', ['input'], {name:"descInput", type:"text",value:Edit[1]});
+    const deadLabel = createElement('label', ['label'], {for:"deadInput", textContent:"Deadline: "});
+    const deadInput = createElement('input', ['input'], {name:"deadInput", type:"date",value:Edit[2]});
+    const prioLabel = createElement('label', ['label'], {for:"select", textContent:"Priority: "});
+    const prioDropdown = createElement('select', ['select'], {name:"priority"});
+    const defaultSel = createElement('option', ['option'], {value:"", textContent: "--Assign Priority--"});
+    const High = createElement('option', ['option'], {value:"High", textContent:"High"});
+    const Medium = createElement('option', ['option'], {value:"Medium", textContent:"Medium"});
+    const Low = createElement('option', ['option'], {value:"Low", textContent:"Low"});
+    const submitBtn = createElement('input', ['submitbtn'], {type:"submit", value:"Update Task", ID:"taskSubmit"});
+
+    if (Edit[3] == "High") {
+        High.selected = true;
+    } else if (Edit[3] == "Medium") {
+        Medium.selected = true;
+    } else if (Edit[3] == "Low") {
+        Low.selected = true;
+    } else {
+        defaultSel.selected = true;
+    }
+
+    
+
+    modalClose.addEventListener("click", () =>{
+        modalBG.classList.add('hidden');
+        modalBG.remove();
+        inputContainer.reset();
+    });
+    submitBtn.addEventListener("click", (e) =>{
+        e.preventDefault();
+        let taskTitle = titleInput.value;
+        let taskDesc = descInput.value;
+        let taskDead = flipDate(deadInput.value);
+        let taskPrio = prioDropdown.value;
+        const test2 = new toDoList(taskTitle, taskDesc, taskDead, taskPrio);
+        updateCard(test2,Loc);
+        const original = document.getElementById(Loc).firstChild;
+        original.remove();
+        modalBG.classList.add('hidden');
+        modalBG.remove();
+        inputContainer.reset();
+    });
+
+    prioDropdown.append(defaultSel,High,Medium,Low);
+    modalBG.append(modalContainer);
+    inputContainer.append(titleLabel, titleInput, descLabel, descInput, deadLabel, deadInput, prioLabel, prioDropdown, submitBtn);
+    drawLocation.append(modalBG);
 }
 
 function projectModal(){
@@ -101,4 +165,4 @@ function projectModal(){
 
 }
 
-export {initModal,projectModal}
+export {initModal,projectModal,updateModal}

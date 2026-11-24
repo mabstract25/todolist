@@ -27,7 +27,8 @@ document.getElementById('newProject').addEventListener('click', () =>{
 
 function buildCard(todoitem,locID) {
     const location = document.getElementById(locID);
-    const taskContainer = createElement('div', ['taskContainer'], {});
+    let taskID = crypto.randomUUID();
+    const taskContainer = createElement('div', ['taskContainer'], {id: taskID});
     const deletebtn = createElement('button', ['deletebtn'], {textContent:'X'});
     const editbtn = createElement('button', ['editbtn'], {textContent:'E'})
     addDeleteListener(deletebtn);
@@ -46,6 +47,40 @@ function buildCard(todoitem,locID) {
     }
 }
 
+function updateCard(todoitem,locID) {
+    let cardToUpdate = document.getElementById(locID);
+    let cardTextFields = cardToUpdate.childNodes;
+    let filtered = [];
+
+    const deletebtn = createElement('button', ['deletebtn'], {textContent:'X'});
+    const editbtn = createElement('button', ['editbtn'], {textContent:'E'})
+    addDeleteListener(deletebtn);
+    addEditListener(editbtn);
+
+    cardTextFields.forEach((element) => {
+            if(element.classList.contains("toDoValue")){
+                filtered.push(element);
+            };
+
+            if(element.classList.contains("deletebtn")){
+                element.remove();
+            };
+
+            if(element.classList.contains("editbtn")){
+                element.remove();
+            };
+    });
+
+    filtered[0].textContent = todoitem.Title;
+    filtered[1].textContent = todoitem.Description;
+    filtered[2].textContent = todoitem.Deadline;
+    filtered[3].textContent = todoitem.Priority;
+
+    // NEED TO APPEND, but at the start. learn InsertBEFORE??
+
+
+}
+
 function buildProject(projectitem,locID) {
     const location = document.getElementById(locID);
     const projTitleContainer = createElement('div',['projTitleContainer'], {});
@@ -58,7 +93,7 @@ function buildProject(projectitem,locID) {
 
 projectModal();
 
-export {buildCard, buildProject, toDoList, projList};
+export {buildCard, buildProject, toDoList, projList,updateCard};
 
 
 document.getElementById('contractallbtn').addEventListener('click', collapseAll);

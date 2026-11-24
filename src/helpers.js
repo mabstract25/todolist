@@ -1,5 +1,5 @@
 import { forEach } from 'lodash';
-import {initModal} from './modals.js'
+import {initModal,updateModal} from './modals.js'
 
 function createElement(type, elclass = [], elattribute = {}) {
     const element = document.createElement(type);
@@ -43,6 +43,7 @@ function addEditListener(btn) {
     btn.addEventListener('click', (e) =>{
         let thisTask = e.target.parentNode;
         let taskElements = thisTask.childNodes;
+        let taskID = thisTask.id;
         let taskArr = [];
         taskElements.forEach((element) => {
             if(element.classList.contains("toDoValue")){
@@ -50,9 +51,11 @@ function addEditListener(btn) {
             }
         });
 
-        let date = flipDate(taskArr[2]);
+        taskArr.splice(2,1,flipDate(taskArr[2]));
         
-        console.log(date);
+        updateModal(taskArr,taskID);
+        let newTaskModal = document.getElementById('modalBG');
+        newTaskModal.classList.remove('hidden');
         
         
         // Use keys in a new toDoList class > declare as 'editdetails'
