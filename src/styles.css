@@ -21,9 +21,13 @@ h2 {
 }
 
 .organiser {
-    padding: 1em;
     display: grid;
-    grid-template-columns: repeat(6, 1fr)
+    grid-template-columns: repeat(auto-fill, 200px);
+    height: 100vh;
+   
+    overflow-x: scroll;
+    grid-auto-flow: column;
+    grid-auto-columns: 200px;
 }
 
 #todobox {
@@ -49,10 +53,14 @@ h2 {
 
 .project {
     position: relative;
+    height: 100%;
+    overflow:scroll;
 }
 
 .projTitleContainer {
     position: relative;
+    display: grid;
+    gap: 1em;   
 }
 
 /* Task Card Styles */

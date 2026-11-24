@@ -1,0 +1,14 @@
+create project cards
+
+let proj = document.getElementById('newProject');
+proj.click();
+let createproj = document.getElementById('projSubmit');
+createproj.click() ;
+
+
+create task cards
+
+let taskcd = document.getElementById('e272c923-fc27-41b7-8b55-cf7aad92a5b2');
+taskcd.click();
+let createtask = document.getElementById('taskSubmit');
+createtask.click();
