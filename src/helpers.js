@@ -32,6 +32,17 @@ function addDeleteListener(btn) {
     })
 }
 
+function addEditListener(btn) {
+    btn.addEventListener('click', (e) =>{
+        let thisTask = e.target.parentNode;
+        // iterate through thisTask.Children
+        // Only pick values > ignore keys.
+        // Use keys in a new toDoList class > declare as 'editdetails'
+        // Pass to initmodal() through new function property.
+        console.log(thisTask);
+    })
+}
+
 function collapseAll() {
     const taskContainerList = document.getElementsByClassName('taskContainer');
     for (const task of taskContainerList){
@@ -65,4 +76,4 @@ function expandAll() {
 
 }
 
-export {createElement,addTaskListener,addDeleteListener,collapseAll,expandAll};
+export {createElement,addTaskListener,addDeleteListener,addEditListener,collapseAll,expandAll};
