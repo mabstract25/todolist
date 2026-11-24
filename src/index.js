@@ -1,6 +1,6 @@
 import "./styles.css"
-import {createElement,collapseAll,expandAll} from './helpers.js'
-import {initModal,projectModal} from './modals.js'
+import {createElement,collapseAll,expandAll,addDeleteListener} from './helpers.js'
+import {projectModal} from './modals.js'
 
 class toDoList {
     constructor (title, description, deadline, priority){
@@ -28,7 +28,10 @@ document.getElementById('newProject').addEventListener('click', () =>{
 function buildCard(todoitem,locID) {
     const location = document.getElementById(locID);
     const taskContainer = createElement('div', ['taskContainer'], {});
+    const deletebtn = createElement('button', ['deletebtn'], {textContent:'X'})
+    addDeleteListener(deletebtn);
     location.append(taskContainer);
+    taskContainer.append(deletebtn);
     for (const [key, value] of Object.entries(todoitem)) {
         let keytext = document.createElement('p');
         keytext.classList.add('toDoKey')

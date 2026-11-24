@@ -20,12 +20,17 @@ function createElement(type, elclass = [], elattribute = {}) {
 
 function addTaskListener(btn) {
     btn.addEventListener('click', (e) =>{
-    console.log(e);
-    console.log(e.target.nextSibling.id);
     initModal(e.target.nextSibling.id);
     let newTaskModal = document.getElementById('modalBG');
     newTaskModal.classList.remove('hidden');
 })};
+
+function addDeleteListener(btn) {
+    btn.addEventListener('click', (e) =>{
+        console.log("Test");
+        btn.parentNode.remove();
+    })
+}
 
 function collapseAll() {
     const taskContainerList = document.getElementsByClassName('taskContainer');
@@ -60,4 +65,4 @@ function expandAll() {
 
 }
 
-export {createElement,addTaskListener,collapseAll,expandAll};
+export {createElement,addTaskListener,addDeleteListener,collapseAll,expandAll};

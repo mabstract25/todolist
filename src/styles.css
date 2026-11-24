@@ -46,7 +46,7 @@ h2 {
 }
 
 
-
+/* Task Card Styles */
 .inputContainer {
     background-color: white;
     padding: 1em;
@@ -73,6 +73,7 @@ h2 {
     border: 1px solid darkgray;
     gap: 0.5em;
     grid-template-columns: 1fr 1fr;
+    position: relative;
 }
 
 .toDoKey, .toDoValue{
@@ -82,4 +83,17 @@ h2 {
 
 .toDoKey {
     background-color: white;
+}
+
+
+
+/* Button Styles */
+.deletebtn {
+    position: absolute;
+    right: 0.2em;
+    top: 0.2em;
+    border-radius: 1em;
+    padding: 0.2em;
+    width: 25px;
+    height: 25px;
 }
