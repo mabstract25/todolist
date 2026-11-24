@@ -1,3 +1,4 @@
+import { forEach } from 'lodash';
 import {initModal} from './modals.js'
 
 function createElement(type, elclass = [], elattribute = {}) {
@@ -20,7 +21,7 @@ function createElement(type, elclass = [], elattribute = {}) {
 
 function addTaskListener(btn) {
     btn.addEventListener('click', (e) =>{
-    initModal(e.target.nextSibling.id);
+    initModal("",e.target.nextSibling.id);
     let newTaskModal = document.getElementById('modalBG');
     newTaskModal.classList.remove('hidden');
 })};
@@ -32,14 +33,31 @@ function addDeleteListener(btn) {
     })
 }
 
+function flipDate(string){
+    let date = string.split('-').reverse().join('-');
+    return date;
+}
+
+
 function addEditListener(btn) {
     btn.addEventListener('click', (e) =>{
         let thisTask = e.target.parentNode;
-        // iterate through thisTask.Children
-        // Only pick values > ignore keys.
+        let taskElements = thisTask.childNodes;
+        let taskArr = [];
+        taskElements.forEach((element) => {
+            if(element.classList.contains("toDoValue")){
+                taskArr.push(element.textContent);
+            }
+        });
+
+        let date = flipDate(taskArr[2]);
+        
+        console.log(date);
+        
+        
         // Use keys in a new toDoList class > declare as 'editdetails'
         // Pass to initmodal() through new function property.
-        console.log(thisTask);
+        
     })
 }
 
@@ -76,4 +94,4 @@ function expandAll() {
 
 }
 
-export {createElement,addTaskListener,addDeleteListener,addEditListener,collapseAll,expandAll};
+export {createElement,addTaskListener,addDeleteListener,addEditListener,collapseAll,expandAll,flipDate};
