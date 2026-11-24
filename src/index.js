@@ -47,9 +47,11 @@ function buildCard(todoitem,locID) {
 function buildProject(projectitem,locID) {
     const location = document.getElementById(locID);
     const projTitleContainer = createElement('div',['projTitleContainer'], {});
-    location.append(projTitleContainer);
+    const projDeleteBtn = createElement('button', ['deletebtn'], {textContent:'X'});
+    addDeleteListener(projDeleteBtn);
+    location.append(projTitleContainer,projDeleteBtn);
     let projTitleText = createElement('h4',['projTitleText'],{textContent: projectitem.Project_Title});
-    projTitleContainer.appendChild(projTitleText);
+    projTitleContainer.append(projTitleText);
 }
 
 projectModal();

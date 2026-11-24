@@ -45,6 +45,15 @@ h2 {
   align-items: center;
 }
 
+/* Project Card Styles */
+
+.project {
+    position: relative;
+}
+
+.projTitleContainer {
+    position: relative;
+}
 
 /* Task Card Styles */
 .inputContainer {
