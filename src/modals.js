@@ -94,8 +94,6 @@ function updateModal(Edit,Loc) {
         defaultSel.selected = true;
     }
 
-    
-
     modalClose.addEventListener("click", () =>{
         modalBG.classList.add('hidden');
         modalBG.remove();
@@ -109,8 +107,6 @@ function updateModal(Edit,Loc) {
         let taskPrio = prioDropdown.value;
         const test2 = new toDoList(taskTitle, taskDesc, taskDead, taskPrio);
         updateCard(test2,Loc);
-        const original = document.getElementById(Loc).firstChild;
-        original.remove();
         modalBG.classList.add('hidden');
         modalBG.remove();
         inputContainer.reset();

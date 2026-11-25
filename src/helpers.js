@@ -58,9 +58,6 @@ function addEditListener(btn) {
         newTaskModal.classList.remove('hidden');
         
         
-        // Use keys in a new toDoList class > declare as 'editdetails'
-        // Pass to initmodal() through new function property.
-        
     })
 }
 

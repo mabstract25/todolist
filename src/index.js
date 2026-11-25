@@ -50,34 +50,16 @@ function buildCard(todoitem,locID) {
 function updateCard(todoitem,locID) {
     let cardToUpdate = document.getElementById(locID);
     let cardTextFields = cardToUpdate.childNodes;
-    let filtered = [];
 
     const deletebtn = createElement('button', ['deletebtn'], {textContent:'X'});
     const editbtn = createElement('button', ['editbtn'], {textContent:'E'})
     addDeleteListener(deletebtn);
     addEditListener(editbtn);
 
-    cardTextFields.forEach((element) => {
-            if(element.classList.contains("toDoValue")){
-                filtered.push(element);
-            };
-
-            if(element.classList.contains("deletebtn")){
-                element.remove();
-            };
-
-            if(element.classList.contains("editbtn")){
-                element.remove();
-            };
-    });
-
-    filtered[0].textContent = todoitem.Title;
-    filtered[1].textContent = todoitem.Description;
-    filtered[2].textContent = todoitem.Deadline;
-    filtered[3].textContent = todoitem.Priority;
-
-    // NEED TO APPEND, but at the start. learn InsertBEFORE??
-
+    cardTextFields[3].textContent = todoitem.Title;
+    cardTextFields[5].textContent = todoitem.Description;
+    cardTextFields[7].textContent = todoitem.Deadline;
+    cardTextFields[9].textContent = todoitem.Priority;
 
 }
 
